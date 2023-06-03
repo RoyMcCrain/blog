@@ -1,0 +1,10 @@
+.eslintrc.cjs
+tailwind.config.js
+src/api/graphql.ts
+next-env.d.ts
+/node_modules
+/.pnp
+/coverage
+/.next/
+/out/
+/build

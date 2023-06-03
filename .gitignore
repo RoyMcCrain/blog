@@ -5,3 +5,12 @@ node_modules
 /functions/\[\[path\]\].js.map
 /public/build
 .dev.vars
+
+# generated typed SCSS
+*.module.scss.d.ts
+
+# stylelint
+.stylelintcache
+
+# eslint
+.eslintcache
