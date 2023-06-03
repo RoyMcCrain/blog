@@ -5,6 +5,7 @@ node_modules
 /functions/\[\[path\]\].js.map
 /public/build
 .dev.vars
+.env
 
 # generated typed SCSS
 *.module.scss.d.ts
