@@ -1,6 +1,5 @@
 import { allList } from "@/api/microcms/blog/allList.server";
 import type { Response } from "@/api/microcms/blog/allList.server";
-import { createClient } from "@/api/microcms/client.server";
 import type {
   V2_MetaFunction,
   HeadersFunction,
@@ -21,7 +20,7 @@ export const headers: HeadersFunction = () => ({
 });
 
 export const loader: LoaderFunction = async ({ context }: LoaderArgs) =>
-  await allList(createClient(context));
+  await allList(context);
 
 export default function Index() {
   const res = useLoaderData<Response>();
