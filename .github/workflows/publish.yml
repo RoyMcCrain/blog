@@ -16,6 +16,6 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 8da37f2c68005226e55dffb2ffc7664b
           projectName: blog
-          directory: public
+          directory: ./public/build
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           branch: main
