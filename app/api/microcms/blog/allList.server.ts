@@ -4,7 +4,7 @@ import { ENDPOINT, PAGE_PER_COUNT } from "@/const.server";
 import type { LoaderArgs } from "@remix-run/cloudflare";
 import type { MicroCMSListResponse } from "microcms-js-sdk";
 
-export type Response = MicroCMSListResponse<Blog>;
+export type Response = ReturnType<typeof allList>;
 
 export const allList = async (context: LoaderArgs["context"]) => {
   const client = createClient(context);
@@ -30,7 +30,7 @@ export const allList = async (context: LoaderArgs["context"]) => {
 
       return acc.then((vs) => vs.concat(v.contents));
     },
-    Promise.resolve(res.contents)
+    Promise.resolve(res.contents),
   );
 
   return { ...res, contents };
