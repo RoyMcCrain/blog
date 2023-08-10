@@ -9,7 +9,7 @@
     "format:prettier": "prettier -w --cache \"./**/*.{ts,tsx,js,jsx,json,css,scss}\"",
     "start": "cross-env NODE_ENV=production npm run wrangler",
     "lint:tsc": "tsc --noEmit",
-    "lint": "run-s format:**",
+    "lint": "run-s format:** lint:**",
     "prepare": "git config --local core.hooksPath .githooks",
     "wrangler": "wrangler pages dev ./public"
   },
