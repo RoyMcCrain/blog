@@ -1,5 +1,19 @@
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
+  env: {
+    browser: true,
+    node: true,
+    es2023: true,
+  },
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    project: "./tsconfig.json",
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: "latest",
+    sourceType: "module",
+  },
   extends: ["@remix-run/eslint-config", "@remix-run/eslint-config/node"],
   plugins: ["import-access"],
   rules: {
@@ -48,6 +62,7 @@ module.exports = {
           "DID_",
           "WILL_",
           "__esModule",
+          "_",
         ],
       },
     ],

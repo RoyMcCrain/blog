@@ -1,15 +1,18 @@
 {
+  "name": "roy-blog",
   "private": true,
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
     "dev:remix": "remix watch",
     "dev:wrangler": "cross-env NODE_ENV=development npm run wrangler",
+    "deadcode": "ts-prune -e -i 'server.ts|app/routes|entry.*.tsx|app/root.tsx'",
     "dev": "npm-run-all build --parallel \"dev:*\"",
     "format:prettier": "prettier -w --cache \"./**/*.{ts,tsx,js,jsx,json,css,scss}\"",
     "start": "cross-env NODE_ENV=production npm run wrangler",
+    "lint": "run-s format:** deadcode lint:**",
+    "lint:eslint": "eslint --cache --quiet \"./**/*.{ts,tsx}\"",
     "lint:tsc": "tsc --noEmit",
-    "lint": "run-s format:** lint:**",
     "prepare": "git config --local core.hooksPath .githooks",
     "wrangler": "wrangler pages dev ./public"
   },
@@ -34,11 +37,14 @@
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/react": "^18.0.35",
     "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/parser": "^6.3.0",
+    "@vanilla-extract/css": "^1.12.0",
     "eslint": "^8.42.0",
     "eslint-plugin-import-access": "^2.1.0",
     "lint-staged": "^13.2.2",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.0.1",
+    "ts-prune": "^0.10.3",
     "typescript": "^5.0.4",
     "wrangler": "^3.5.0"
   }
