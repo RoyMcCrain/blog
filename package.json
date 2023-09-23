@@ -4,36 +4,31 @@
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
-    "dev:remix": "remix watch",
-    "dev:wrangler": "cross-env NODE_ENV=development npm run wrangler",
-    "deadcode": "ts-prune -e -i 'server.ts|app/routes|entry.*.tsx|app/root.tsx'",
-    "dev": "npm-run-all build --parallel \"dev:*\"",
+    "dev": "remix dev --manual -c 'npm run start'",
     "format:prettier": "prettier -w --cache \"./**/*.{ts,tsx,js,jsx,json,css,scss}\"",
-    "start": "cross-env NODE_ENV=production npm run wrangler",
-    "lint": "run-s format:** deadcode lint:**",
+    "lint": "run-s format:** lint:**",
     "lint:eslint": "eslint --cache --quiet \"./**/*.{ts,tsx}\"",
     "lint:tsc": "tsc --noEmit",
     "prepare": "git config --local core.hooksPath .githooks",
-    "wrangler": "wrangler pages dev ./public"
+    "start": "wrangler pages dev ./public"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,json,css,scss}": "prettier -w --cache"
   },
   "dependencies": {
-    "@remix-run/cloudflare": "^1.19.3",
-    "@remix-run/cloudflare-pages": "^1.19.3",
-    "@remix-run/css-bundle": "^1.19.3",
-    "@remix-run/react": "^1.19.3",
-    "cross-env": "^7.0.3",
+    "@remix-run/cloudflare": "^2.0.1",
+    "@remix-run/cloudflare-pages": "^2.0.1",
+    "@remix-run/css-bundle": "^2.0.1",
+    "@remix-run/react": "^2.0.1",
     "isbot": "^3.6.13",
     "microcms-js-sdk": "^2.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^3.19.0",
-    "@remix-run/dev": "^1.16.1",
-    "@remix-run/eslint-config": "^1.16.1",
+    "@cloudflare/workers-types": "^4.20230914.0",
+    "@remix-run/dev": "^2.0.1",
+    "@remix-run/eslint-config": "^2.0.1",
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/react": "^18.0.35",
     "@types/react-dom": "^18.0.11",
@@ -41,11 +36,10 @@
     "@vanilla-extract/css": "^1.12.0",
     "eslint": "^8.42.0",
     "eslint-plugin-import-access": "^2.1.0",
-    "lint-staged": "^13.2.2",
+    "lint-staged": "^14.0.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.0.1",
-    "ts-prune": "^0.10.3",
     "typescript": "^5.0.4",
-    "wrangler": "^3.5.0"
+    "wrangler": "^3.9.0"
   }
 }

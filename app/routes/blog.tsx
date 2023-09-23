@@ -1,15 +1,15 @@
 import { allList } from "@/api/microcms/blog/allList.server";
 import type { Response } from "@/api/microcms/blog/allList.server";
 import type {
-  V2_MetaFunction,
+  MetaFunction,
   HeadersFunction,
   LoaderFunction,
-  LoaderArgs,
+  LoaderFunctionArgs,
 } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
 import { Button } from "@/components/button";
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
   return [
     { title: "blog" },
     { name: "description", content: "Welcome to Remix!" },
@@ -20,7 +20,7 @@ export const headers: HeadersFunction = () => ({
   "Cache-Control": "max-age=0, s-maxage=60, stale-while-revalidate=60",
 });
 
-export const loader: LoaderFunction = async ({ context }: LoaderArgs) =>
+export const loader: LoaderFunction = async ({ context }: LoaderFunctionArgs) =>
   await allList(context);
 
 export default function Index() {
