@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import * as styles from "./styles.css"; // Note that `.ts` is omitted here
+import * as styles from "./styles.css";
 import type { ButtonHTMLAttributes } from "react";
 
 export const Button = forwardRef<

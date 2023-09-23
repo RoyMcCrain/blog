@@ -6,9 +6,10 @@
     "build": "remix build",
     "dev": "remix dev --manual -c 'npm run start'",
     "format:prettier": "prettier -w --cache \"./**/*.{ts,tsx,js,jsx,json,css,scss}\"",
-    "lint": "run-s format:** lint:**",
+    "lint": "run-s format:** deadcode lint:**",
     "lint:eslint": "eslint --cache --quiet \"./**/*.{ts,tsx}\"",
     "lint:tsc": "tsc --noEmit",
+    "deadcode": "npx knip --exports",
     "prepare": "git config --local core.hooksPath .githooks",
     "start": "wrangler pages dev ./public"
   },
